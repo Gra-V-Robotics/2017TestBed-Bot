@@ -1,9 +1,12 @@
 package org.usfirst.frc.team5816.robot;
 
+import java.util.Properties;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -13,7 +16,7 @@ public class Robot extends IterativeRobot {
 	
 	RobotDrive driveTrain = new RobotDrive(frontLeftMotor, backLeftMotor, frontRightMotor, backRightMotor);
 	
-	Joystick logitechController;
+	Joystick logitechController = new Joystick(0);
 
 	@Override
 	public void robotInit() {
@@ -23,6 +26,7 @@ public class Robot extends IterativeRobot {
 		backRightMotor = new Talon(3);
 		
 		logitechController = new Joystick(0);
+
 	}
 
 	@Override
