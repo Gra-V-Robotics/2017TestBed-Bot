@@ -6,7 +6,6 @@ import java.io.UnsupportedEncodingException;
 import java.util.Properties;
 
 import com.ctre.CANTalon;
-import com.kauailabs.navx.frc.AHRS;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.Compressor;
@@ -78,6 +77,12 @@ public class Robot extends IterativeRobot {
 	Double encoderKd;
 	
 	Double encoderOutput;
+	
+	DriverStation driverStation; 
+	
+	Double battery;
+	Alliance teamAlliance;
+	Double matchTime;
 
 	@Override
 	public void robotInit() {
@@ -118,6 +123,10 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("GyroRateVal: ", gyroRateVal);
 		SmartDashboard.putNumber("LeftEncoderVal: ", leftEncoderVal);
 		SmartDashboard.putNumber("RightEncoderVal: ", -rightEncoderVal);
+		SmartDashboard.putNumber("Match Time", matchTime);
+		SmartDashboard.putNumber("Battery Charge", battery);
+		SmartDashboard.putString("Team Alliance", teamAlliance.toString());//.toString() causes crash
+		driverStationDisplay();
 	}
 
 	@Override
@@ -233,5 +242,14 @@ public class Robot extends IterativeRobot {
 	public void encoderAutonomousInit() {
 		
 	}
+	
+	public void driverStationDisplay(){
+		this.battery = driverStation.getBatteryVoltage();
+		this.teamAlliance = driverStation.getAlliance();
+		this.matchTime = driverStation.getMatchTime();  
+		
+		
+	}
+	
 
 }
