@@ -83,7 +83,7 @@ public class Robot extends IterativeRobot {
 	Double battery;
 	Alliance teamAlliance;
 	Double matchTime;
-
+	
 	@Override
 	public void robotInit() {
 		sensorCalibration();
@@ -117,6 +117,8 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 
+		DriverStation.getInstance();
+		
 		updateSensors();
 		driveWithJoysticks(logitechController.getRawAxis(1), logitechController.getRawAxis(5));
 		SmartDashboard.putNumber("GyroAngleVal: ", gyroAngleVal);
