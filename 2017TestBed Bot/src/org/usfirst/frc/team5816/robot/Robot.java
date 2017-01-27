@@ -1,6 +1,8 @@
 package org.usfirst.frc.team5816.robot;
 
 import com.ctre.CANTalon;
+import com.kauailabs.navx.frc.AHRS;
+
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.Encoder;
@@ -11,6 +13,7 @@ import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.PIDSource;
 import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.interfaces.Gyro;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -23,7 +26,7 @@ public class Robot extends IterativeRobot {
 	
 	Joystick logitechController = new Joystick(0);
 	
-	//AHRS navX = new AHRS(SerialPort.Port.kMXP);
+	AHRS navX = new AHRS(SerialPort.Port.kMXP);
 	
 	CANTalon frontLeftMotor = new CANTalon(4);
 	CANTalon frontRightMotor = new CANTalon(2);
@@ -91,6 +94,7 @@ public class Robot extends IterativeRobot {
 	public void teleopPeriodic() {
 
 		updateSensors();
+		navXStats();
 		driveWithJoysticks(logitechController.getRawAxis(1), logitechController.getRawAxis(5));
 		SmartDashboard.putNumber("GyroAngleVal: ", gyroAngleVal);
 		SmartDashboard.putNumber("GyroRateVal: ", gyroRateVal);
@@ -210,6 +214,22 @@ public class Robot extends IterativeRobot {
 	
 	public void encoderAutonomousInit() {
 		
+	}
+	
+	public void navXStats() {
+		SmartDashboard.putNumber("Heading: ", navX.getCompassHeading());
+		SmartDashboard.putNumber("Angle: ", navX.getAngle());
+		SmartDashboard.putNumber("Rate: ", navX.getRate());
+		SmartDashboard.putNumber("X Displacement: ", navX.getDisplacementX());
+		SmartDashboard.putNumber("Y Displacement: ", navX.getDisplacementY());
+		SmartDashboard.putNumber("Z Displacement: ", navX.getDisplacementZ());
+		SmartDashboard.putNumber("Pitch: ", navX.getPitch());
+		SmartDashboard.putNumber("Roll: ", navX.getRoll());
+		SmartDashboard.putNumber("Yaw: ", navX.getYaw());
+		SmartDashboard.putNumber("Temp: ", navX.getTempC());
+		SmartDashboard.putNumber("Velocity X: ", navX.getVelocityX());
+		SmartDashboard.putNumber("Velocity Y: ", navX.getVelocityY());
+		SmartDashboard.putNumber("Velocity Z: ", navX.getVelocityZ());
 	}
 
 }
