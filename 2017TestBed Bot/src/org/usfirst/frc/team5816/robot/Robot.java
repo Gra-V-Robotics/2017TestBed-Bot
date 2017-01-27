@@ -248,7 +248,7 @@ public class Robot extends IterativeRobot {
 		this.teamAlliance = driverStation.getAlliance();
 		this.matchTime = driverStation.getMatchTime();  
 		
-		
+		//ERROR Unhandled exception: java.lang.NullPointerException at [org.usfirst.frc.team5816.robot.Robot.teleopPeriodic(Robot.java:126), edu.wpi.first.wpilibj.IterativeRobot.startCompetition(IterativeRobot.java:130), edu.wpi.first.wpilibj.RobotBase.main(RobotBase.java:247)] 
 	}
 	
 
