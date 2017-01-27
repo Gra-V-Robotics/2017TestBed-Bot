@@ -9,8 +9,10 @@ import com.ctre.CANTalon;
 import com.kauailabs.navx.frc.AHRS;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.GyroBase;
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -76,14 +78,6 @@ public class Robot extends IterativeRobot {
 	Double encoderKd;
 	
 	Double encoderOutput;
-	
-	DriverStation driverStation;
-	
-	String driverStationAlliance;
-	
-	Double driverStationLocation;
-	Double batteryVoltage;
-	Double matchTime;
 
 	@Override
 	public void robotInit() {
@@ -124,10 +118,6 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("GyroRateVal: ", gyroRateVal);
 		SmartDashboard.putNumber("LeftEncoderVal: ", leftEncoderVal);
 		SmartDashboard.putNumber("RightEncoderVal: ", -rightEncoderVal);
-		SmartDashboard.putString("Driver Station Aliance: ", driverStationAlliance);
-		SmartDashboard.putNumber("Driver Station Location: ", driverStationLocation);
-		SmartDashboard.putNumber("Battery Voltage: ", batteryVoltage);
-		SmartDashboard.putNumber("Match Time: ", matchTime);
 	}
 
 	@Override
@@ -242,13 +232,6 @@ public class Robot extends IterativeRobot {
 	
 	public void encoderAutonomousInit() {
 		
-	}
-	
-	public void driverStationDisplay() {
-		driverStationAlliance = driverStation.getAlliance().toString();
-		driverStationLocation = (double) driverStation.getLocation();
-		batteryVoltage = driverStation.getBatteryVoltage();
-		matchTime = driverStation.getMatchTime();
 	}
 
 }
