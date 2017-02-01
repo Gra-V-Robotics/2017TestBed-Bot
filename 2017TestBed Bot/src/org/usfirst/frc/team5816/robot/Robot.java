@@ -123,7 +123,7 @@ public class Robot extends IterativeRobot {
 		driveWithJoysticks(logitechController.getRawAxis(1), logitechController.getRawAxis(5));
 		SmartDashboard.putNumber("GyroAngleVal: ", gyroAngleVal);
 		SmartDashboard.putNumber("GyroRateVal: ", gyroRateVal);
-		SmartDashboard.putNumber("LeftEncoderVal: ", leftEncoderVal);
+		//SmartDashboard.putNumber("LeftEncoderVal: ", leftEncoderVal);
 		SmartDashboard.putNumber("RightEncoderVal: ", -rightEncoderVal);
 		SmartDashboard.putNumber("Match Time", matchTime);
 		SmartDashboard.putNumber("Battery Charge", battery);
@@ -175,6 +175,7 @@ public class Robot extends IterativeRobot {
 		}
 		
 		@Override
+		
 		public double pidGet() {
 			Double angle = gyro.getAngle();
 			return angle==null ? 0 : angle;
