@@ -5,7 +5,7 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketException;
 
-public class TergraHandler implements Runnable {
+public class TegraHandler implements Runnable {
 	private DatagramSocket socket;
 	private DatagramPacket packet;
 	
@@ -16,7 +16,7 @@ public class TergraHandler implements Runnable {
 	private Double shooterAngle;
 	private Boolean shooterIsVisible;
 	
-	public TergraHandler(){
+	public TegraHandler(){
 		this.shooterAngle = 0d;
 		this.shooterIsVisible = false;
 		Thread core = new Thread(this);

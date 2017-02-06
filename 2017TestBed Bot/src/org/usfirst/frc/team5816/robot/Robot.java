@@ -64,7 +64,7 @@ public class Robot extends IterativeRobot {
 	Double encoderOutput;
 
 //	Shooter shooter;
-	TergraHandler tergraHandler;
+	TegraHandler tergraHandler;
 	
 //	Boolean autoRun = false;
 
@@ -75,7 +75,7 @@ public class Robot extends IterativeRobot {
 		sensorCalibration();
 		gyroRobotInit();
 //		this.shooter = new Shooter();
-		this.tergraHandler = new TergraHandler();
+		this.tergraHandler = new TegraHandler();
 
 	}
 	
